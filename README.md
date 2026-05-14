@@ -63,18 +63,18 @@ Once the cookie is set, the banner is never shown again to that visitor (until t
 
 ```plain
 eucoookiebanner/
-├── eucoookiebanner.php          ← Module main class
-├── config.xml                   ← Module metadata
+├── eucoookiebanner.php          <-- Module main class
+├── config.xml                   <-- Module metadata
 ├── README.md
 ├── LICENSE
 └── views/
     ├── css/
-    │   └── cookie_banner.css    ← Overlay styles
+    │   └── cookie_banner.css    <-- Overlay styles
     ├── js/
-    │   └── cookie_banner.js     ← Cookie logic & UX
+    │   └── cookie_banner.js     <-- Cookie logic & UX
     └── templates/
         └── hook/
-            └── cookie_banner.tpl ← Smarty overlay template
+            └── cookie_banner.tpl <-- Smarty overlay template
 ```
 
 ---
