@@ -17,6 +17,9 @@ class eucoookiebanner extends Module
     const CONFIG_LEAVE   = 'EUCOOKIEBANNER_LEAVE_URL';
     const COOKIE_NAME    = 'eucookie_accepted';
     const COOKIE_EXPIRE  = 7; // days
+    const UPDATE_JSON_URL = 'https://git.sitnikov.eu/gas/prestashop-cookie/raw/branch/main/latest.json';
+    const CONFIG_LAST_UPDATE_CHECK = 'EUCOOKIEBANNER_LAST_UPDATE_CHECK';
+    const CONFIG_UPDATE_CACHE = 'EUCOOKIEBANNER_UPDATE_CACHE';
 
     public function __construct()
     {
@@ -71,6 +74,8 @@ class eucoookiebanner extends Module
     public function getContent(): string
     {
         $output = '';
+
+        $output .= $this->renderUpdateInfo();
 
         if (Tools::isSubmit('submitEuCookieBanner')) {
             $bannerText = trim(Tools::getValue(self::CONFIG_TEXT));
@@ -229,5 +234,91 @@ class eucoookiebanner extends Module
         }
 
         return false;
+    }
+
+    /* ------------------------------------------------------------------ */
+    /*  Update checker (simplified, no caching)                           */
+    /* ------------------------------------------------------------------ */
+    
+    private function renderUpdateInfo(): string
+    {
+        $remote = $this->getRemoteVersionData();
+    
+        if (!$remote || empty($remote['version'])) {
+            return $this->displayWarning(
+                $this->l('Unable to check for updates.')
+            );
+        }
+    
+        $remoteVersion = trim($remote['version']);
+    
+        if (version_compare($remoteVersion, $this->version, '>')) {
+    
+            $downloadUrl = '';
+    
+            if (!empty($remote['download_url'])) {
+                $downloadUrl = sprintf(
+                    '<p><a href="%s" target="_blank" class="btn btn-primary">%s</a></p>',
+                    htmlspecialchars($remote['download_url']),
+                    $this->l('Download latest version')
+                );
+            }
+    
+            return $this->displayWarning(
+                sprintf(
+                    $this->l('A new version (%s) is available. Current version: %s'),
+                    $remoteVersion,
+                    $this->version
+                ) . $downloadUrl
+            );
+        }
+    
+        return $this->displayConfirmation(
+            $this->l('You are using the latest version.')
+        );
+    }
+    
+    private function getRemoteVersionData(): ?array
+    {
+        $cache = Configuration::get(self::CONFIG_UPDATE_CACHE);
+        $lastCheck = (int) Configuration::get(self::CONFIG_LAST_UPDATE_CHECK);
+    
+        // Cache for 24h
+        if ($cache && $lastCheck > (time() - 86400)) {
+            $decoded = json_decode($cache, true);
+    
+            if (is_array($decoded)) {
+                return $decoded;
+            }
+        }
+    
+        try {
+            $json = Tools::file_get_contents(self::UPDATE_JSON_URL);
+    
+            if (!$json) {
+                return null;
+            }
+    
+            $data = json_decode($json, true);
+    
+            if (!is_array($data)) {
+                return null;
+            }
+    
+            Configuration::updateValue(
+                self::CONFIG_UPDATE_CACHE,
+                json_encode($data)
+            );
+    
+            Configuration::updateValue(
+                self::CONFIG_LAST_UPDATE_CHECK,
+                time()
+            );
+    
+            return $data;
+    
+        } catch (Exception $e) {
+            return null;
+        }
     }
 }
