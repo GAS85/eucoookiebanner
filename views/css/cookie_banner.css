@@ -1,0 +1,244 @@
+/* ============================================================
+   EU Cookie Banner — eucoookiebanner
+   ============================================================ */
+
+/* ── Reset / Scope ───────────────────────────────────────── */
+#eucb-overlay *,
+#eucb-overlay *::before,
+#eucb-overlay *::after {
+  box-sizing: border-box;
+  /* margin: 0; */
+  padding: 0;
+}
+
+/* ── Full-page overlay ───────────────────────────────────── */
+#eucb-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  /* font-family: 'Georgia', 'Times New Roman', serif; */
+}
+
+#eucb-overlay.eucb-visible {
+  display: flex;
+}
+
+/* Frosted / dimmed backdrop */
+.eucb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 18, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: eucb-fade-in 0.4s ease forwards;
+}
+
+/* ── Modal card ──────────────────────────────────────────── */
+.eucb-modal {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  background: #0f0e17;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 48px 44px 40px;
+  color: #e8e6f0;
+  text-align: center;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 24px 80px rgba(0, 0, 0, 0.7),
+    0 0 120px rgba(90, 60, 200, 0.12);
+  animation: eucb-slide-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ── Cookie icon ─────────────────────────────────────────── */
+.eucb-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #0f5fdd;
+}
+
+.eucb-icon svg {
+  width: 56px;
+  height: 56px;
+  filter: drop-shadow(0 0 12px rgba(124, 174, 248, 0.5));
+}
+
+/* ── Typography ──────────────────────────────────────────── */
+.eucb-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 18px;
+  font-family: inherit;
+}
+
+.eucb-text {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #b8b4cc;
+  margin-bottom: 32px;
+}
+
+.eucb-text a {
+  color: #7e7cf8;
+  text-decoration: underline;
+}
+
+.eucb-note {
+  font-size: 0.75rem;
+  color: #5c5878;
+  margin-top: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Action buttons ──────────────────────────────────────── */
+.eucb-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.eucb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 320px;
+  padding: 14px 28px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+  border: none;
+  outline: none;
+}
+
+.eucb-btn:focus-visible {
+  outline: 2px solid #7cbcf8;
+  outline-offset: 3px;
+}
+
+/* Primary – Agree */
+.eucb-btn--agree {
+  background: #7cbcf8;
+  color: #ffffff;
+  box-shadow: 0 4px 24px rgba(124, 174, 248, 0.5);
+}
+
+.eucb-btn--agree:hover {
+  background: #7cbcf8;
+  box-shadow: 0 6px 32px rgba(124, 174, 248, 0.55);
+  transform: translateY(-1px);
+}
+
+.eucb-btn--agree:active {
+  transform: translateY(0);
+  background: #7cbcf8;
+}
+
+.eucb-btn-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Secondary – Leave */
+.eucb-btn--leave {
+  background: transparent;
+  color: #5c5878;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  font-size: 0.78rem;
+  padding: 10px 24px;
+  max-width: 200px;
+}
+
+.eucb-btn--leave:hover {
+  color: #0f5fdd;
+  border-color: rgba(155, 124, 248, 0.3);
+}
+
+/* ── Divider line ────────────────────────────────────────── */
+.eucb-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #0f5fdd, transparent);
+  border-radius: 0 0 2px 2px;
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes eucb-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes eucb-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes eucb-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0; pointer-events: none; }
+}
+
+#eucb-overlay.eucb-hiding {
+  animation: eucb-fade-out 0.3s ease forwards;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .eucb-modal {
+    padding: 36px 24px 30px;
+  }
+
+  .eucb-title {
+    font-size: 1.2rem;
+  }
+
+  .eucb-text {
+    font-size: 0.88rem;
+  }
+
+  .eucb-btn {
+    max-width: 100%;
+  }
+
+  .eucb-btn--leave {
+    max-width: 100%;
+  }
+}
+
+/* ── Body scroll lock (applied via JS) ───────────────────── */
+body.eucb-no-scroll {
+  overflow: hidden !important;
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>eucoookiebanner</name>
+    <displayName><![CDATA[EU Cookie Banner]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[Displays a GDPR/EU cookie consent overlay. Visitors must agree to continue or leave the shop.]]></description>
+    <author><![CDATA[Georgiy Sitnikov - https://git.sitnikov.eu/gas/prestashop-cookie]]></author>
+    <tab>front_office_features</tab>
+    <confirmUninstall>Are you sure you want to uninstall?</confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+    <limited_countries></limited_countries>
+</module>
