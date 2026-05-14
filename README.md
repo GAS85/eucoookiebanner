@@ -4,8 +4,6 @@
 **Compatible with:** PrestaShop 8.x / 9.x  
 **Version:** 0.0.1
 
----
-
 ## Features
 
 - Full-page frosted overlay blocks all interaction until the visitor makes a choice.
@@ -17,15 +15,11 @@
 - WCAG-friendly: keyboard trap, ARIA attributes, focus management.
 - Body scroll is locked while the banner is visible.
 
----
-
 ## Installation
 
 1. Copy the `eucoookiebanner/` folder into `<prestashop_root>/modules/`.
 2. Go to **Back Office → Modules → Module Manager**.
 3. Search for **"EU Cookie Banner"** and click **Install**.
-
----
 
 ## Configuration
 
@@ -34,8 +28,6 @@
    - **Banner Text** — the message shown in the overlay (HTML allowed, e.g. links to your Privacy Policy).
    - **"Leave Shop" Redirect URL** — where visitors are sent if they do not agree (default: `https://duckduckgo.com`).
 3. Click **Save**.
-
----
 
 ## How it works
 
@@ -48,16 +40,12 @@
 
 Once the cookie is set, the banner is never shown again to that visitor (until the cookie expires or is cleared).
 
----
-
 ## Hooks used
 
 | Hook | Purpose |
 |---|---|
 | `displayHeader` | Injects CSS + JS into `<head>` |
 | `displayBeforeBodyClosingTag` | Renders the overlay HTML before `</body>` |
-
----
 
 ## File structure
 
@@ -76,8 +64,6 @@ eucoookiebanner/
         └── hook/
             └── cookie_banner.tpl <-- Smarty overlay template
 ```
-
----
 
 ## Customization tips
 

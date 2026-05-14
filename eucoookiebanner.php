@@ -25,13 +25,13 @@ class eucoookiebanner extends Module
     {
         $this->name             = 'eucoookiebanner';
         $this->tab              = 'front_office_features';
-        $this->version          = '0.0.1';
+        $this->version          = '0.2.0';
         $this->author           = 'Georgiy Sitnikov';
         $this->need_instance    = 0;
         $this->bootstrap        = true;
 
         $this->ps_versions_compliancy = [
-            'min' => '8.0.0',
+            'min' => '9.0.0',
             'max' => _PS_VERSION_,
         ];
 
@@ -39,7 +39,7 @@ class eucoookiebanner extends Module
 
         $this->displayName = $this->l('EU Cookie Banner');
         $this->description = $this->l(
-            'Displays a GDPR/EU cookie consent overlay. Visitors must agree to continue or leave the shop.'
+            'Displays a GDPR/EU cookie consent overlay. Visitors must agree to continue or leave the shop. You can find documentation and source code under the link: https://git.sitnikov.eu/gas/eucoookiebanner Made by: %author%, Current Version: %version%', ['%version%' => $this->version ,'%author%' => $this->author], 'Modules.eucoookiebanner.eucoookiebanner'
         );
     }
 
