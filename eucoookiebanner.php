@@ -17,7 +17,7 @@ class eucoookiebanner extends Module
     const CONFIG_LEAVE   = 'EUCOOKIEBANNER_LEAVE_URL';
     const COOKIE_NAME    = 'eucookie_accepted';
     const COOKIE_EXPIRE  = 7; // days
-    const UPDATE_JSON_URL = 'https://git.sitnikov.eu/gas/prestashop-cookie/raw/branch/main/latest.json';
+    const UPDATE_JSON_URL = 'https://git.sitnikov.eu/gas/eucoookiebanner/raw/branch/main/latest.json';
     const CONFIG_LAST_UPDATE_CHECK = 'EUCOOKIEBANNER_LAST_UPDATE_CHECK';
     const CONFIG_UPDATE_CACHE = 'EUCOOKIEBANNER_UPDATE_CACHE';
 
