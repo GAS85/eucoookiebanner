@@ -1,5 +1,6 @@
 /* ============================================================
    EU Cookie Banner — eucoookiebanner
+   Design: Refined dark modal on frosted backdrop
    ============================================================ */
 
 /* ── Reset / Scope ───────────────────────────────────────── */
@@ -7,7 +8,6 @@
 #eucb-overlay *::before,
 #eucb-overlay *::after {
   box-sizing: border-box;
-  /* margin: 0; */
   padding: 0;
 }
 
@@ -20,7 +20,6 @@
   align-items: center;
   justify-content: center;
   padding: 16px;
-  /* font-family: 'Georgia', 'Times New Roman', serif; */
 }
 
 #eucb-overlay.eucb-visible {
@@ -61,13 +60,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  color: #0f5fdd;
+  color: #9b7cf8;
 }
 
 .eucb-icon svg {
   width: 56px;
   height: 56px;
-  filter: drop-shadow(0 0 12px rgba(124, 174, 248, 0.5));
+  filter: drop-shadow(0 0 12px rgba(155, 124, 248, 0.5));
 }
 
 /* ── Typography ──────────────────────────────────────────── */
@@ -89,7 +88,7 @@
 }
 
 .eucb-text a {
-  color: #7e7cf8;
+  color: #9b7cf8;
   text-decoration: underline;
 }
 
@@ -134,26 +133,26 @@
 }
 
 .eucb-btn:focus-visible {
-  outline: 2px solid #7cbcf8;
+  outline: 2px solid #9b7cf8;
   outline-offset: 3px;
 }
 
 /* Primary – Agree */
 .eucb-btn--agree {
-  background: #7cbcf8;
+  background: #9b7cf8;
   color: #ffffff;
-  box-shadow: 0 4px 24px rgba(124, 174, 248, 0.5);
+  box-shadow: 0 4px 24px rgba(155, 124, 248, 0.35);
 }
 
 .eucb-btn--agree:hover {
-  background: #7cbcf8;
-  box-shadow: 0 6px 32px rgba(124, 174, 248, 0.55);
+  background: #b49bff;
+  box-shadow: 0 6px 32px rgba(155, 124, 248, 0.55);
   transform: translateY(-1px);
 }
 
 .eucb-btn--agree:active {
   transform: translateY(0);
-  background: #7cbcf8;
+  background: #8066e0;
 }
 
 .eucb-btn-icon {
@@ -173,7 +172,7 @@
 }
 
 .eucb-btn--leave:hover {
-  color: #0f5fdd;
+  color: #9b7cf8;
   border-color: rgba(155, 124, 248, 0.3);
 }
 
@@ -185,7 +184,7 @@
   left: 10%;
   width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #0f5fdd, transparent);
+  background: linear-gradient(90deg, transparent, #9b7cf8, transparent);
   border-radius: 0 0 2px 2px;
 }
 
