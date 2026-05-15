@@ -2,7 +2,7 @@
 
 **Module name:** `eucoookiebanner`  
 **Compatible with:** PrestaShop 8.x / 9.x  
-**Version:** 0.3.0
+**Version:** 0.3.3
 
 ---
 

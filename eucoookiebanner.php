@@ -26,7 +26,7 @@ class Eucoookiebanner extends Module
     {
         $this->name          = 'eucoookiebanner';
         $this->tab           = 'front_office_features';
-        $this->version       = '0.3.2';
+        $this->version       = '0.3.3';
         $this->author        = 'Georgiy Sitnikov';
         $this->need_instance = 0;
         $this->bootstrap     = true;
@@ -182,11 +182,11 @@ class Eucoookiebanner extends Module
                 'input' => [
                     [
                         // lang: true -> one tab per shop language
-                        // Removed autoload_rte: true and will initialize TinyMCE manually
                         'type'     => 'textarea',
                         'label'    => $this->l('Banner Text'),
                         'name'     => self::CONFIG_TEXT,
                         'lang'     => true,
+                        'autoload_rte' => true,
                         'required' => true,
                         'class'    => 'rte', // Add class to identify RTE fields
                         'rows'     => 8,
