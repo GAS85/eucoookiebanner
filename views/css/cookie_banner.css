@@ -1,6 +1,5 @@
 /* ============================================================
    EU Cookie Banner — eucoookiebanner
-   Design: Refined dark modal on frosted backdrop
    ============================================================ */
 
 /* ── Reset / Scope ───────────────────────────────────────── */
@@ -42,11 +41,11 @@
   z-index: 1;
   width: 100%;
   max-width: 520px;
-  background: #0f0e17;
+  background: #1777b6;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   padding: 48px 44px 40px;
-  color: #e8e6f0;
+  color: #fbb244;
   text-align: center;
   box-shadow:
     0 0 0 1px rgba(255,255,255,0.04),
@@ -60,13 +59,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  color: #9b7cf8;
+  color: #fbb244;
 }
 
 .eucb-icon svg {
   width: 56px;
   height: 56px;
-  filter: drop-shadow(0 0 12px rgba(155, 124, 248, 0.5));
+  filter: drop-shadow(0 0 12px rgba(251, 178, 68, 0.5));
 }
 
 /* ── Typography ──────────────────────────────────────────── */
@@ -83,18 +82,18 @@
 .eucb-text {
   font-size: 0.95rem;
   line-height: 1.75;
-  color: #b8b4cc;
+  color: #ffffff;
   margin-bottom: 32px;
 }
 
 .eucb-text a {
-  color: #9b7cf8;
+  color: #ffffff;
   text-decoration: underline;
 }
 
 .eucb-note {
   font-size: 0.75rem;
-  color: #5c5878;
+  color: #ffffff;
   margin-top: 20px;
   letter-spacing: 0.02em;
 }
@@ -133,26 +132,26 @@
 }
 
 .eucb-btn:focus-visible {
-  outline: 2px solid #9b7cf8;
+  outline: 2px solid #fbb244;
   outline-offset: 3px;
 }
 
 /* Primary – Agree */
 .eucb-btn--agree {
-  background: #9b7cf8;
-  color: #ffffff;
+  background: #fbb244;
+  color: #1777b6;
   box-shadow: 0 4px 24px rgba(155, 124, 248, 0.35);
 }
 
 .eucb-btn--agree:hover {
-  background: #b49bff;
+  background: #ff9900;
   box-shadow: 0 6px 32px rgba(155, 124, 248, 0.55);
   transform: translateY(-1px);
 }
 
 .eucb-btn--agree:active {
   transform: translateY(0);
-  background: #8066e0;
+  background: #fbb244;
 }
 
 .eucb-btn-icon {
@@ -163,16 +162,13 @@
 /* Secondary – Leave */
 .eucb-btn--leave {
   background: transparent;
-  color: #5c5878;
+  color: #fbb244;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: none;
-  font-size: 0.78rem;
-  padding: 10px 24px;
-  max-width: 200px;
 }
 
 .eucb-btn--leave:hover {
-  color: #9b7cf8;
+  color: #b49bff;
   border-color: rgba(155, 124, 248, 0.3);
 }
 
@@ -184,7 +180,7 @@
   left: 10%;
   width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #9b7cf8, transparent);
+  background: linear-gradient(90deg, transparent, #fbb244, transparent);
   border-radius: 0 0 2px 2px;
 }
 

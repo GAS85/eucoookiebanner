@@ -2,7 +2,7 @@
 
 **Module name:** `eucoookiebanner`  
 **Compatible with:** PrestaShop 8.x / 9.x  
-**Version:** 0.3.3
+**Version:** 0.3.4
 
 ---
 
@@ -25,7 +25,18 @@
 2. Go to **Back Office → Modules → Module Manager**.
 3. Search for **"EU Cookie Banner"** and click **Install**.
 
----
+## How to upgrade
+
+Module will automatically check for a newer version once per day. If newer Version released, you will be notified on a Module Configuration page. Click on "Download" and import ZIP archive via "Modulmanager".
+
+### Manual upgrade
+
+Go to the repository releases: https://git.sitnikov.eu/gas/eucoookiebanner/releases/tag/eucoookiebanner and download the [zip archive with latest release](https://git.sitnikov.eu/gas/eucoookiebanner/archive/eucoookiebanner.zip).
+
+If you need particular version, please visit [TAGs](https://git.sitnikov.eu/gas/eucoookiebanner/tags) and download needed Archive.
+
+**Important Note** - you need to rename archive to the `eucoookiebanner.zip` before to upload it to Prestashop.
+
 
 ## Configuration
 
@@ -80,6 +91,6 @@ eucoookiebanner/
 
 ## Customisation tips
 
-- To change the accent colour (purple `#9b7cf8`), edit `cookie_banner.css` and replace `#9b7cf8` / `#b49bff`.
+- To change the accent colour (`#fbb244`), edit `cookie_banner.css` and replace `#fbb244` / `#1777b6`.
 - To change the cookie lifetime, edit the `COOKIE_DAYS` constant in `cookie_banner.js` and `COOKIE_EXPIRE` in `eucoookiebanner.php`.
 - The banner text supports full HTML — add a link to your Privacy Policy page directly from the admin panel.

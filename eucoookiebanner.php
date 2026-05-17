@@ -26,7 +26,7 @@ class Eucoookiebanner extends Module
     {
         $this->name          = 'eucoookiebanner';
         $this->tab           = 'front_office_features';
-        $this->version       = '0.3.3';
+        $this->version       = '0.3.4';
         $this->author        = 'Georgiy Sitnikov';
         $this->need_instance = 0;
         $this->bootstrap     = true;
@@ -93,10 +93,8 @@ class Eucoookiebanner extends Module
     {
         $output = '';
 
-        // Add TinyMCE initialization with proper event handlers
-        $this->context->controller->addJS($this->_path . 'views/js/admin_tinymce.js');
-
         $output .= $this->renderUpdateInfo();
+        $output .= $this->renderAboutInfo();
 
         if (Tools::isSubmit('submitEuCookieBanner')) {
             $errors = [];
@@ -166,6 +164,22 @@ class Eucoookiebanner extends Module
         return $helper->generateForm([$this->getConfigFormDefinition()]);
     }
 
+    protected function renderAboutInfo(): string
+    {
+        return '
+        <div class="alert alert-info" style="margin-top: 20px;">
+            <h4>' . $this->l('About This Module') . '</h4>
+            <p>' . $this->l('This module is open-source and free to use.') . '</p>
+            ' . /* <p>' . $this->l('If you like it, please consider:') . '</p> 
+            * <ul>
+            *     <li>' . $this->l('Leaving a review on PrestaShop Addons') . '</li>
+            *     <li>' . sprintf($this->l('Donating via %sPayPal%s'), '<a href="https://www.paypal.com/paypalme/GeorgiySitnikov" target="_blank">', '</a>') . '</li>
+            * </ul>
+            */'
+            <p>' . sprintf($this->l('You can donate via %sPayPal%s'), '<a href="https://www.paypal.com/paypalme/GeorgiySitnikov" target="_blank">', '</a>') .  '</p>
+            <p>' . sprintf($this->l('Documentation and source: %s'), '<a href="https://git.sitnikov.eu/gas/eucoookiebanner" target="_blank">https://git.sitnikov.eu/gas/eucoookiebanner</a>') . '</p>
+        </div>';
+    }
     protected function getConfigFormDefinition(): array
     {
         return [
@@ -177,7 +191,7 @@ class Eucoookiebanner extends Module
                 'description' => $this->l(
                     'Configure the cookie consent overlay shown to every new visitor. '
                     . 'Visitors must click "I Agree" to continue browsing, or they will be redirected to the "Leave URL". '
-                    . 'HTML is fully supported – use the editor to add links, bold text, etc.'
+                    . 'HTML is fully supported - use the editor to add links, bold text, etc.'
                 ),
                 'input' => [
                     [
@@ -206,7 +220,7 @@ class Eucoookiebanner extends Module
                             'Visitors are redirected here when they dismiss the banner without agreeing '
                             . '(default: https://duckduckgo.com/).'
                         ),
-                    ],
+                    ]
                 ],
                 'submit' => [
                     'title' => $this->l('Save'),
@@ -319,7 +333,7 @@ class Eucoookiebanner extends Module
 
             return $this->displayWarning(
                 sprintf(
-                    $this->l('A new version (%s) is available. Current version: %s'),
+                    $this->l('A new version (%s) is available. Current version: %s.' . 'Please visit our Git repository for more information https://git.sitnikov.eu/gas/eucoookiebanner.'),
                     $remoteVersion,
                     $this->version
                 ) . $downloadLink
